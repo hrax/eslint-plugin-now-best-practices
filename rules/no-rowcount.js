@@ -1,0 +1,1 @@
+// Disallow use of getRowCount

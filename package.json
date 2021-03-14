@@ -1,0 +1,45 @@
+{
+  "name": "@hrax/eslint-plugin-now-best-practices",
+  "version": "0.0.1",
+  "description": "ESLint plugin to cover some of the Service Now Best Practices",
+  "keywords": [
+    "service now",
+    "service",
+    "now",
+    "snow",
+    "eslint plugin",
+    "plugin",
+    "best practices"
+  ],
+  "homepage": "https://github.com/hrax/eslint-plugin-now-best-practices",
+  "bugs": "https://github.com/hrax/eslint-plugin-now-best-practices/issues",
+  "author": {
+    "name": "Gregor Magdolen",
+    "url": "https://hrax.dev"
+  },
+  "main": "index.js",
+  "files": [
+    "rules",
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hrax/eslint-plugin-now-best-practices.git"
+  },
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "mocha": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=11.13.0",
+    "npm": "^6.7.0"
+  },
+  "license": "ISC"
+}
