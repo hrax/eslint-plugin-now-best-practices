@@ -5,8 +5,8 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Disallow use of gs.log calls",
-      category: "Strict Mode"
+      description: "Disallow use of GlideRecord.getRowCount calls",
+      category: "Best Practices"
     },
     schema: []
   },
