@@ -4,7 +4,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Require use of GlideRecord.addEncodedQuery calls with hardcoded literals",
+      description: "Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals",
       category: "Strict Mode"
     },
     schema: []
