@@ -5,7 +5,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Require use of gs.log calls with 2 arguments",
+      description: "Enforce use of gs.log calls with 2 arguments",
       category: "Best Practices"
     },
     schema: []
