@@ -53,13 +53,13 @@ Or use one of the available configurations under the extends section. See Config
 
 | Rule name                | Category       | Description | 
 | ------------------------ | -------------- | ----------- |
-| gslog-source             | Best Practices | Require use of gs.log calls with 2 arguments
+| gslog-source             | Best Practices | Enforce use of gs.log calls with 2 arguments
 | no-dotwalk-ref-id        | Best Practices | Disallow dot-walking to the sys_id of reference field
-| no-encoded-query-literal | Strict Mode    | Require use of GlideRecord.addEncodedQuery calls with hardcoded literals
+| no-encoded-query-literal | Strict Mode    | Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals
 | no-encoded-query         | Strict Mode    | Disallow use of GlideRecord.addEncodedQuery calls
 | no-gslog                 | Strict Mode    | Disallow use of gs.log calls
 | no-gsprint               | Strict Mode    | Disallow use of gs.print calls
-| no-gssql                 | Strict Mode    | Disallow use of gs.log calls
+| no-gssql                 | Strict Mode    | Disallow use of gs.sql calls
 | no-hardcoded-id          | Best Practices | Disallow hardcoded Sys ID in Literals
 | no-rowcount              | Best Practices | Disallow use of GlideRecord.getRowCount calls
 
