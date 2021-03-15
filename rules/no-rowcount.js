@@ -11,19 +11,19 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function checkGsLogCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.object.type !== "Identifier" || aNode.callee.property.type !== "Identifier" || aNode.callee.object.name !== "gs" || aNode.callee.property.name !== "sql") {
+    function checkRowCountCall(aNode) {
+      if (aNode.callee.type !== "MemberExpression" || aNode.callee.property.type !== "Identifier" || aNode.callee.property.name !== "getRowCount") {
         return;
       }
 
       context.report({
         node: aNode,
-        message: "Avoid using calls to gs.sql."
+        message: "Avoid using calls to GlideRecord.getRowCount."
       });
     }
 
     return {
-      "CallExpression": checkGsLogCall
+      "CallExpression": checkRowCountCall
     };
   }
 };

@@ -41,7 +41,7 @@ Then configure the rules you want to use under the rules section. See Rules sect
 }
 ```
 
-Or use one of the available configurations under the extends section. See Configurations section for the list of available configurations.
+Or use one of the available configurations under the extends section. See Rules section to see available rules for each configuration.
 
 ```json
 {
@@ -51,26 +51,17 @@ Or use one of the available configurations under the extends section. See Config
 
 ## Rules
 
-| Rule name                | Category       | Description | 
-| ------------------------ | -------------- | ----------- |
-| gslog-source             | Best Practices | Enforce use of gs.log calls with 2 arguments
-| no-dotwalk-ref-id        | Best Practices | Disallow dot-walking to the sys_id of reference field
-| no-encoded-query-literal | Strict Mode    | Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals
-| no-encoded-query         | Strict Mode    | Disallow use of GlideRecord.addEncodedQuery calls
-| no-gslog                 | Strict Mode    | Disallow use of gs.log calls
-| no-gsprint               | Strict Mode    | Disallow use of gs.print calls
-| no-gssql                 | Strict Mode    | Disallow use of gs.sql calls
-| no-hardcoded-id          | Best Practices | Disallow hardcoded Sys ID in Literals
-| no-rowcount              | Best Practices | Disallow use of GlideRecord.getRowCount calls
-
-## Configurations
-
-| Configuration name | Description | 
-| ------------------ | ----------- |
-| recommended        | Title       |
-| strict             | Text        |
-| maintenance        | Text        |
-
+| Rule name                | Category       | Configuration           | Description | 
+| ------------------------ | -------------- | ----------------------- | ----------- |
+| gslog-source             | Best Practices | recommended:1           | Enforce use of gs.log calls with 2 arguments
+| no-dotwalk-ref-id        | Best Practices | recommended:1, strict:2 | Disallow dot-walking to the sys_id of reference field
+| no-encoded-query-literal | Strict Mode    | recommended:1           | Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals
+| no-encoded-query         | Strict Mode    | strict:2                | Disallow use of GlideRecord.addEncodedQuery calls
+| no-gslog                 | Strict Mode    | strict:2                | Disallow use of gs.log calls
+| no-gsprint               | Strict Mode    | recommended:2, strict:2 | Disallow use of gs.print calls
+| no-gssql                 | Strict Mode    | recommended:2, strict:2 | Disallow use of gs.sql calls
+| no-hardcoded-id          | Best Practices | recommended:2, strict:2 | Disallow hardcoded Sys ID in Literals
+| no-rowcount              | Best Practices | recommended:2, strict:2 | Disallow use of GlideRecord.getRowCount calls
 
 
 

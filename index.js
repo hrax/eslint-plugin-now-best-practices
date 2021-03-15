@@ -13,7 +13,8 @@ module.exports = {
     "no-encoded-query": require("./rules/no-encoded-query"),
     "gslog-source": require("./rules/gslog-source"),
     "no-encoded-query-literal": require("./rules/no-encoded-query-literal"),
-    "no-gssql": require("./rules/no-gssql")
+    "no-gssql": require("./rules/no-gssql"),
+    "no-rowcount": require("./rules/no-rowcount")
   },
   configs: {
     // Recommended best practice configuration
@@ -24,7 +25,8 @@ module.exports = {
         "@hrax/now-best-practices/gslog-source": "warn",
         "@hrax/now-best-practices/no-gsprint": "error",
         "@hrax/now-best-practices/no-encoded-query-literal": "warn",
-        "@hrax/now-best-practices/no-gssql": "error"
+        "@hrax/now-best-practices/no-gssql": "error",
+        "@hrax/now-best-practices/no-rowcount": "error"
       }
     },
     // Strict enforcement of all best practices and maintenance rules
@@ -35,18 +37,8 @@ module.exports = {
         "@hrax/now-best-practices/no-gslog": "error",
         "@hrax/now-best-practices/no-gsprint": "error",
         "@hrax/now-best-practices/no-encoded-query": "error",
-        "@hrax/now-best-practices/no-gssql": "error"
-      }
-    },
-    // Rules for easier maintenance
-    maintenance: {
-      rules: {
-        "@hrax/now-best-practices/no-hardcoded-id": "error",
-        "@hrax/now-best-practices/no-dotwalk-ref-id": "warn",
-        "@hrax/now-best-practices/gslog-source": "error",
-        "@hrax/now-best-practices/no-gsprint": "error",
-        "@hrax/now-best-practices/no-encoded-query-literal": "error",
-        "@hrax/now-best-practices/no-gssql": "error"
+        "@hrax/now-best-practices/no-gssql": "error",
+        "@hrax/now-best-practices/no-rowcount": "error"
       }
     }
   }
