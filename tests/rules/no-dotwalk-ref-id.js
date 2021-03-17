@@ -3,18 +3,13 @@
 var rule = require("../../rules/no-dotwalk-ref-id");
 var RuleTester = require("eslint").RuleTester;
 
-var ruleTester = new RuleTester({
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
-  "env": {
-    "es6": true
-  }
-});
+var ruleTester = new RuleTester();
 ruleTester.run("no-dotwalk-ref-id", rule, {
 
   valid: [
-    "var a = current.sys_id"
+    "var foo = current.sys_id;",
+    "var foo = current.getValue(\"sys_id\");",
+    "var foo = current.u_caller.getRefRecord().getValue(\"sys_id\");"
   ],
 
   invalid: [
@@ -23,6 +18,15 @@ ruleTester.run("no-dotwalk-ref-id", rule, {
       errors: [
         {
           message: "Avoid Dot-Walking to the sys_id of a Reference Field \"caller_id\".",
+          type: "MemberExpression"
+        }
+      ]
+    },
+    {
+      code: "var foo = current.caller_id.country.sys_id",
+      errors: [
+        {
+          message: "Avoid Dot-Walking to the sys_id of a Reference Field \"country\".",
           type: "MemberExpression"
         }
       ]

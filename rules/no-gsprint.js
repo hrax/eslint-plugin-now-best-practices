@@ -1,4 +1,7 @@
-// disallow gs.print calls
+/**
+ * @fileoverview Disallow use of gs.print calls
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,20 +14,15 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    
-    function checkGsPrintCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.object.type !== "Identifier" || aNode.callee.property.type !== "Identifier" || aNode.callee.object.name !== "gs" || aNode.callee.property.name !== "print") {
-        return;
-      }
-      
+    function reportGlideSystemPrintCall(node) {
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to gs.print."
       });
     }
 
     return {
-      "CallExpression": checkGsPrintCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='print']": reportGlideSystemPrintCall
     };
   }
 };

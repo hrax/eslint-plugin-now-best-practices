@@ -1,4 +1,7 @@
-// Disallow use of getRowCount
+/**
+ * @fileoverview Disallow use of GlideRecord.getRowCount calls
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,19 +14,15 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function checkRowCountCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.property.type !== "Identifier" || aNode.callee.property.name !== "getRowCount") {
-        return;
-      }
-
+    function reportRowCountCall(node) {
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to GlideRecord.getRowCount."
       });
     }
 
     return {
-      "CallExpression": checkRowCountCall
+      "CallExpression[callee.property.name='getRowCount']": reportRowCountCall
     };
   }
 };

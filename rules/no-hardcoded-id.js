@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Disallow hardcoded Sys ID in Literals
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {

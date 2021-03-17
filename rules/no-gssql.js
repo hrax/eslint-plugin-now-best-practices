@@ -1,4 +1,7 @@
-// Disallow use of gs.sql
+/**
+ * @fileoverview Disallow use of gs.log calls
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,12 +14,7 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    
-    function checkGsLogCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.object.type !== "Identifier" || aNode.callee.property.type !== "Identifier" || aNode.callee.object.name !== "gs" || aNode.callee.property.name !== "sql") {
-        return;
-      }
-      
+    function reportGlideSystemSQLCall(aNode) {
       context.report({
         node: aNode,
         message: "Avoid using calls to gs.sql."
@@ -24,7 +22,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression": checkGsLogCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='sql']": reportGlideSystemSQLCall
     };
   }
 };

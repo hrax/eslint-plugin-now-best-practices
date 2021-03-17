@@ -1,4 +1,7 @@
-// disallow addEncodedQuery calls
+/**
+ * @fileoverview Disallow use of GlideRecord.addEncodedQuery calls
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,21 +14,16 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    
-    function checkAddEncodedQueryCall(aNode) {
+    function reportAddEncodedQueryCall(node) {
       // TODO: allow any depth? maybe a rule config?
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.property.name !== "addEncodedQuery") {
-        return;
-      }
-      
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to GlideRecord.addEncodedQuery."
       });
     }
 
     return {
-      "CallExpression": checkAddEncodedQueryCall
+      "CallExpression[callee.property.name='addEncodedQuery']": reportAddEncodedQueryCall
     };
   }
 };

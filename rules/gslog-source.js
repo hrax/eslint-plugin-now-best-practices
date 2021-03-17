@@ -1,4 +1,7 @@
-// disallow gs.log calls without 2 arguments
+/**
+ * @fileoverview Disallow gs.log calls without 2 arguments
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,20 +14,21 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    
-    function checkGsLogCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.object.type !== "Identifier" || aNode.callee.property.type !== "Identifier" || aNode.callee.object.name !== "gs" || aNode.callee.property.name !== "log" || aNode.arguments.length === 2) {
+    function checkGsLogCall(node) {
+      const ALLOWED_ARGS_NO = 2;
+      // Skip if is not GlideSystem call, not a log call or has 2 arguments
+      if (node.arguments.length === ALLOWED_ARGS_NO) {
         return;
       }
-      
+
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to gs.log without 2 arguments."
       });
     }
 
     return {
-      "CallExpression": checkGsLogCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='log']": checkGsLogCall
     };
   }
 };

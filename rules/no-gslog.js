@@ -1,4 +1,7 @@
-// disallow gs.log calls
+/**
+ * @fileoverview Disallow use of gs.log calls
+ * @author Gregor "hrax" Magdolen
+ */
 "use strict";
 
 module.exports = {
@@ -11,20 +14,15 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    
-    function checkGsLogCall(aNode) {
-      if (aNode.callee.type !== "MemberExpression" || aNode.callee.object.type !== "Identifier" || aNode.callee.property.type !== "Identifier" || aNode.callee.object.name !== "gs" || aNode.callee.property.name !== "log") {
-        return;
-      }
-      
+    function reportGsLogCall(node) {
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to gs.log; consider replacement in favor of GSLog."
       });
     }
 
     return {
-      "CallExpression": checkGsLogCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='log']": reportGsLogCall
     };
   }
 };
