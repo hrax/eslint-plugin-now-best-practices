@@ -14,9 +14,9 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function reportGlideSystemSQLCall(aNode) {
+    function reportGlideSystemSQLCall(node) {
       context.report({
-        node: aNode,
+        node: node,
         message: "Avoid using calls to gs.sql."
       });
     }

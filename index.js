@@ -1,6 +1,6 @@
 /**
- * @fileoverview s
- * @author Gregor Magdolen
+ * @fileoverview List of rules and configurations
+ * @author Gregor "hrax" Magdolen
  */
 "use strict";
 
