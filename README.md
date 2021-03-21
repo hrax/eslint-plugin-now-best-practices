@@ -62,6 +62,7 @@ Or use one of the available configurations under the extends section. See Config
 | no-gssql                 | Strict Mode    | Disallow use of gs.sql calls
 | no-hardcoded-id          | Best Practices | Disallow hardcoded Sys ID in Literals
 | no-rowcount              | Best Practices | Disallow use of GlideRecord.getRowCount calls
+| no-synchronous-glideajax | Best Practices | Disallow use of of synchronous GlideAjax.getXMLWait and GlideAjax.getAnswer calls
 
 ## Configurations
 
@@ -76,6 +77,7 @@ Or use one of the available configurations under the extends section. See Config
 | no-gssql                 | *error*
 | no-hardcoded-id          | *error*
 | no-rowcount              | *error*
+| no-synchronous-glideajax | *warning*
 
 ### *strict* Configuration
 
@@ -88,3 +90,4 @@ Or use one of the available configurations under the extends section. See Config
 | no-gssql                 | *error*
 | no-hardcoded-id          | *error*
 | no-rowcount              | *error*
+| no-synchronous-glideajax | *error*

@@ -14,7 +14,8 @@ module.exports = {
     "gslog-source": require("./rules/gslog-source"),
     "no-encoded-query-literal": require("./rules/no-encoded-query-literal"),
     "no-gssql": require("./rules/no-gssql"),
-    "no-rowcount": require("./rules/no-rowcount")
+    "no-rowcount": require("./rules/no-rowcount"),
+    "no-synchronous-glideajax": require("./rules/no-synchronous-glideajax")
   },
   configs: {
     // Recommended best practice configuration
@@ -26,7 +27,8 @@ module.exports = {
         "@hrax/now-best-practices/no-gsprint": "error",
         "@hrax/now-best-practices/no-encoded-query-literal": "warn",
         "@hrax/now-best-practices/no-gssql": "error",
-        "@hrax/now-best-practices/no-rowcount": "error"
+        "@hrax/now-best-practices/no-rowcount": "error",
+        "@hrax/now-best-practices/no-synchronous-glideajax": "warn"
       }
     },
     // Strict enforcement of all best practices and maintenance rules
@@ -38,7 +40,8 @@ module.exports = {
         "@hrax/now-best-practices/no-gsprint": "error",
         "@hrax/now-best-practices/no-encoded-query": "error",
         "@hrax/now-best-practices/no-gssql": "error",
-        "@hrax/now-best-practices/no-rowcount": "error"
+        "@hrax/now-best-practices/no-rowcount": "error",
+        "@hrax/now-best-practices/no-synchronous-glideajax": "error"
       }
     }
   }
