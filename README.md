@@ -1,8 +1,8 @@
-# eslint-plugin-now-best-practices
-
-[![Test](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml/badge.svg)](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml)
+# ServiceNow Best Practices ESLint Plugin [![Test](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml/badge.svg)](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml)
 
 Set of [Service Now technical best practice](https://developer.servicenow.com/dev.do#!/guides/orlando/now-platform/tpb-guide/scripting_technical_best_practices) rules to highlight common errors that occur during development of Service Now applications.
+
+*This plugin is not a replacement for tools such as QualityClouds or other PMD tools.*
 
 ## Installation
 
@@ -41,7 +41,7 @@ Then configure the rules you want to use under the rules section. See Rules sect
 }
 ```
 
-Or use one of the available configurations under the extends section. See Rules section to see available rules for each configuration.
+Or use one of the available configurations under the extends section. See Configurations section to see available rules for each configuration.
 
 ```json
 {
@@ -51,17 +51,40 @@ Or use one of the available configurations under the extends section. See Rules 
 
 ## Rules
 
-| Rule name                | Category       | Configuration           | Description | 
-| ------------------------ | -------------- | ----------------------- | ----------- |
-| gslog-source             | Best Practices | recommended:1           | Enforce use of gs.log calls with 2 arguments
-| no-dotwalk-ref-id        | Best Practices | recommended:1, strict:2 | Disallow dot-walking to the sys_id of reference field
-| no-encoded-query-literal | Strict Mode    | recommended:1           | Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals
-| no-encoded-query         | Strict Mode    | strict:2                | Disallow use of GlideRecord.addEncodedQuery calls
-| no-gslog                 | Strict Mode    | strict:2                | Disallow use of gs.log calls
-| no-gsprint               | Strict Mode    | recommended:2, strict:2 | Disallow use of gs.print calls
-| no-gssql                 | Strict Mode    | recommended:2, strict:2 | Disallow use of gs.sql calls
-| no-hardcoded-id          | Best Practices | recommended:2, strict:2 | Disallow hardcoded Sys ID in Literals
-| no-rowcount              | Best Practices | recommended:2, strict:2 | Disallow use of GlideRecord.getRowCount calls
+| Rule name                | Category       | Description | 
+| ------------------------ | -------------- | ----------- |
+| gslog-source             | Best Practices | Enforce use of gs.log calls with 2 arguments
+| no-dotwalk-ref-id        | Best Practices | Disallow dot-walking to the sys_id of reference field
+| no-encoded-query-literal | Strict Mode    | Enforce use of GlideRecord.addEncodedQuery calls without hardcoded literals
+| no-encoded-query         | Strict Mode    | Disallow use of GlideRecord.addEncodedQuery calls
+| no-gslog                 | Strict Mode    | Disallow use of gs.log calls
+| no-gsprint               | Strict Mode    | Disallow use of gs.print calls
+| no-gssql                 | Strict Mode    | Disallow use of gs.sql calls
+| no-hardcoded-id          | Best Practices | Disallow hardcoded Sys ID in Literals
+| no-rowcount              | Best Practices | Disallow use of GlideRecord.getRowCount calls
 
+## Configurations
 
+### *recommended* Configuration
 
+| Rule name                | Reports as 
+| ------------------------ | ----------------------- 
+| gslog-source             | *warning*
+| no-dotwalk-ref-id        | *warning*
+| no-encoded-query-literal | *warning*
+| no-gsprint               | *error*
+| no-gssql                 | *error*
+| no-hardcoded-id          | *error*
+| no-rowcount              | *error*
+
+### *strict* Configuration
+
+| Rule name                | Reports as           
+| ------------------------ | ----------------------- 
+| no-dotwalk-ref-id        | *error*
+| no-encoded-query         | *error*
+| no-gslog                 | *error*
+| no-gsprint               | *error*
+| no-gssql                 | *error*
+| no-hardcoded-id          | *error*
+| no-rowcount              | *error*
