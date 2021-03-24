@@ -30,8 +30,9 @@ Add `@hrax/now-best-practices` to the plugins section of your `.eslintrc` config
 }
 ```
 
+## Rules
 
-Then configure the rules you want to use under the rules section. See Rules section for list of all available rules.
+Add rule to the rules section of your `.eslintrc` configuration file.
 
 ```json
 {
@@ -40,16 +41,6 @@ Then configure the rules you want to use under the rules section. See Rules sect
     }
 }
 ```
-
-Or use one of the available configurations under the extends section. See Configurations section to see available rules for each configuration.
-
-```json
-{
-  "extends": ["plugin:@hrax/now-best-practices/configuration-name"]
-}
-```
-
-## Rules
 
 | Rule name                | Category       | Description | 
 | ------------------------ | -------------- | ----------- |
@@ -64,7 +55,16 @@ Or use one of the available configurations under the extends section. See Config
 | no-rowcount              | Best Practices | Disallow use of GlideRecord.getRowCount calls
 | no-synchronous-glideajax | Best Practices | Disallow use of of synchronous GlideAjax.getXMLWait and GlideAjax.getAnswer calls
 
+
 ## Configurations
+
+Add configuration to the extends section of your `.eslintrc` configuration file.
+
+```json
+{
+  "extends": ["plugin:@hrax/now-best-practices/configuration-name"]
+}
+```
 
 ### *recommended* Configuration
 
@@ -92,44 +92,56 @@ Or use one of the available configurations under the extends section. See Config
 | no-rowcount              | *error*
 | no-synchronous-glideajax | *error*
 
-## *snow* Environment
+## Environment
 
-Service Now environment to register "common" globals available within Service Now platform. 
+Add environment to the env section of your `.eslintrc` configuration file.
 
-| Global                   | Writable
-| ------------------------ | -----------------------
-| global                   | false
-| current                  | false
-| previous                 | false
-| action                   | false
-| gs                       | false
-| Class                    | false
-| AbstractAjaxProcessor    | false
-| GSLog                    | false
-| GlideRecord              | false
-| GlideAggregate           | false
-| GlideElement             | false
-| GlideDateTime            | false
-| GlideFilter              | false
-| GlideSchedule            | false
-| GlideRecordUtil          | false
-| JSUtil                   | false
-| ArrayUtil                | false
-| DurationCalculator       | false
-| j2js                     | false
-| JSON                     | false
-| JSONParser               | false
-| g_menu                   | false
-| g_item                   | false
-| g_list                   | false
-| g_form                   | false
-| g_scratchpad             | false
-| g_user                   | false
-| GlideAjax                | false
-| GlideDialogWindow        | false
-| GlideList2               | false
-| GlideMenu                | false
-| GlideUser                | false
-| data                     | true
-| input                    | false
-| angular                  | false
+```json
+{
+  "env": {
+    "snow": true
+  }
+}
+```
+
+### *snow* Environment
+
+Service Now environment to register "common" globals available within Service Now platform.
+
+| Global                   | Writable  | References
+| ------------------------ | --------- | --------------
+| global                   | false     | Service Now *global* application scope
+| current                  | false     | currently edited GlideRecord
+| previous                 | false     | previous version of currently edited GlideRecord
+| action                   | false     | type of current action
+| gs                       | false     | global GlideSystem shortcut
+| Class                    | false     | global Service Now Class implementation
+| AbstractAjaxProcessor    | false     | [AJAX processor base class](https://docs.servicenow.com/bundle/quebec-application-development/page/script/ajax/topic/p_AJAX.html#d46119e309) (Quebec)
+| GSLog                    | false     | [GSLog](https://docs.servicenow.com/bundle/quebec-application-development/page/script/useful-scripts/reference/r_GSLog.html) (Quebec)
+| GlideRecord              | false     | [GlideRecord](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_GlideRecordAPI?navFilter=gliderecord) (Quebec)
+| GlideAggregate           | false     | [GlideAggregate](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_GlideAggregateAPI?navFilter=glideaggrega) (Quebec)
+| GlideElement             | false     | [GlideElement](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_GlideElementAPI?navFilter=GlideElement) (Quebec)
+| GlideDateTime            | false     | [GlideDateTime](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_GlideDateTimeAPI?navFilter=GlideDateTime) (Quebec)
+| GlideFilter              | false     | [GlideFilter](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server/no-namespace/c_GlideFilterScopedAPI?navFilter=GlideFilter) (Quebec)
+| GlideSchedule            | false     | [GlideSchedule](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server/no-namespace/c_GlideScheduleScopedAPI?navFilter=GlideSchedule) (Quebec)
+| GlideRecordUtil          | false     | [GlideRecordUtil](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_GlideRecordUtilAPI?navFilter=GlideRecordUtil) (Quebec)
+| JSUtil                   | false     | [JSUtil](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_JSUtilAPI?navFilter=JSUtil) (Quebec)
+| ArrayUtil                | false     | [ArrayUtil](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_ArrayUtilAPI?navFilter=ArrayUtil) (Quebec)
+| DurationCalculator       | false     | [DurationCalculator](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_DurationCalculatorAPI?navFilter=DurationCalculator) (Quebec)
+| j2js                     | false     | [j2js](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_J2jsAPI?navFilter=j2js) (Quebec)
+| JSON                     | false     | [JSON](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_JSONAPI?navFilter=JSON) (Quebec)
+| JSONParser               | false     | [JSONParser](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_JSONParserAPI?navFilter=JSON) (Quebec)
+| g_menu                   | false     | variable for GlideMenu
+| g_item                   | false     | variable for GlideMenu
+| g_list                   | false     | variable for GlideList2
+| g_form                   | false     | variable for [GlideForm](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideFormAPI?navFilter=glideForm) (Quebec)
+| g_scratchpad             | false     | variable for [GlideFormScratchpad](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server/no-namespace/c_GlideFormScratchpadScopedAPI?navFilter=GlideFormScratchpad) (Quebec)
+| g_user                   | false     | variable for GlideUser
+| GlideAjax                | false     | client [GlideAjax](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideAjaxAPI?navFilter=GlideAjax) (Quebec)
+| GlideDialogWindow        | false     | client [GlideDialogWindow](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideDialogWindowAPI?navFilter=GlideDialogWindow) (Quebec)
+| GlideList2               | false     | client [GlideList2](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideList2API?navFilter=GlideList2) (Quebec)
+| GlideMenu                | false     | client [GlideMenu](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideMenuAPI?navFilter=GlideMenu) (Quebec)
+| GlideUser                | false     | client [GlideUser](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideUserAPI?navFilter=GlideUser) (Quebec)
+| data                     | true      | server variable in Service Portal
+| input                    | false     | server variable in Service Portal
+| angular                  | false     | server variable in Service Portal
