@@ -14,7 +14,7 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function reportGsLogCall(node) {
+    function reportGlideSystemLogCall(node) {
       context.report({
         node: node,
         message: "Avoid using calls to gs.log; consider replacement in favor of GSLog."
@@ -22,7 +22,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression[callee.object.name='gs'][callee.property.name='log']": reportGsLogCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='log']": reportGlideSystemLogCall
     };
   }
 };

@@ -14,7 +14,7 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function reportAddEncodedQueryCall(node) {
+    function reportGlideRecordAddEncodedQueryCall(node) {
       // TODO: allow any depth? maybe a rule config?
       context.report({
         node: node,
@@ -23,7 +23,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression[callee.property.name='addEncodedQuery']": reportAddEncodedQueryCall
+      "CallExpression[callee.property.name='addEncodedQuery']": reportGlideRecordAddEncodedQueryCall
     };
   }
 };

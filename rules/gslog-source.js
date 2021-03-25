@@ -14,9 +14,9 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function checkGsLogCall(node) {
+    function checkGlideSystemLogCall(node) {
       const ALLOWED_ARGS_NO = 2;
-      // Skip if is not GlideSystem call, not a log call or has 2 arguments
+      // Skip if log call has 2 arguments
       if (node.arguments.length === ALLOWED_ARGS_NO) {
         return;
       }
@@ -28,7 +28,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression[callee.object.name='gs'][callee.property.name='log']": checkGsLogCall
+      "CallExpression[callee.object.name='gs'][callee.property.name='log']": checkGlideSystemLogCall
     };
   }
 };

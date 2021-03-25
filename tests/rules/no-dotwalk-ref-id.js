@@ -9,7 +9,9 @@ ruleTester.run("no-dotwalk-ref-id", rule, {
   valid: [
     "var foo = current.sys_id;",
     "var foo = current.getValue(\"sys_id\");",
-    "var foo = current.u_caller.getRefRecord().getValue(\"sys_id\");"
+    "var foo = current.u_caller.getRefRecord().getValue(\"sys_id\");",
+    // Reference record was loaded, is valid
+    "var foo = current.u_caller.getRefRecord().sys_id;",
   ],
 
   invalid: [

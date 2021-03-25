@@ -14,7 +14,7 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function reportRowCountCall(node) {
+    function reportGlideRecordRowCountCall(node) {
       context.report({
         node: node,
         message: "Avoid using calls to GlideRecord.getRowCount."
@@ -22,7 +22,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression[callee.property.name='getRowCount']": reportRowCountCall
+      "CallExpression[callee.property.name='getRowCount']": reportGlideRecordRowCountCall
     };
   }
 };

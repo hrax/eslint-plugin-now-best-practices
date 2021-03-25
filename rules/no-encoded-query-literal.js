@@ -14,7 +14,7 @@ module.exports = {
     schema: []
   },
   create: function(context) {
-    function checkAddEncodedQueryCall(node) {
+    function checkGlideRecordAddEncodedQueryCall(node) {
       /*
        * FIXME: resolve BinaryExpression arguments for literals?
        * TODO: option to check only 1 level of depth
@@ -30,7 +30,7 @@ module.exports = {
     }
 
     return {
-      "CallExpression[callee.property.name='addEncodedQuery'][arguments.length=1]": checkAddEncodedQueryCall
+      "CallExpression[callee.property.name='addEncodedQuery'][arguments.length=1]": checkGlideRecordAddEncodedQueryCall
     };
   }
 };

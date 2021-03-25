@@ -22,6 +22,24 @@ ruleTester.run("no-synchronous-glideajax", rule, {
       ]
     },
     {
+      code: "ga.getAnswer();",
+      errors: [
+        {
+          message: "Avoid using calls to synchronous GlideAjax.getAnswer.",
+          type: "CallExpression"
+        }
+      ]
+    },
+    {
+      code: "obj.ga.getXMLWait();",
+      errors: [
+        {
+          message: "Avoid using calls to synchronous GlideAjax.getXMLWait.",
+          type: "CallExpression"
+        }
+      ]
+    },
+    {
       code: "obj.ga.getAnswer();",
       errors: [
         {

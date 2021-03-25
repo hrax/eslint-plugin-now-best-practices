@@ -3,23 +3,12 @@
 var rule = require("../../rules/no-hardcoded-id");
 var RuleTester = require("eslint").RuleTester;
 
-var ruleTester = new RuleTester({
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "env": {
-    "es6": true
-  }
-});
+var ruleTester = new RuleTester();
 ruleTester.run("no-hardcoded-id", rule, {
 
   valid: [
-    "var a = \"9d385017c611228701d22104cc95c37\"",
-    "require(\"test9d385017c611228701d22104cc95c371.js\");",
-    "import Foo from \"component/Foo9d385017c611228701d22104cc95c371\"",
-    "import { Foo } from \"component/Foo9d385017c611228701d22104cc95c371\"",
-    "export { Foo } from \"component/Foo9d385017c611228701d22104cc95c371\""
+    "var foo = \"9d385017c611228701d22104cc95c37\"",
+    "var foo = \"a9d385017c611228701d22104cc95c3712\""
   ],
 
   invalid: [
