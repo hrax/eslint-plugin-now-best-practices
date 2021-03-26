@@ -46,9 +46,9 @@ module.exports = {
     }
   },
   environments: {
-    snow: {
+    /* Service Now "Global" globals (server) */
+    "snow-server": {
       globals: {
-        /* Service Now "Global" globals (server) */
         global: false,
         current: false,
         previous: false,
@@ -72,8 +72,12 @@ module.exports = {
         j2js: false,
         JSON: false,
         JSONParser: false,
-
-        /* Service Now "Global" globals (client) */
+        g_scratchpad: false
+      }
+    },
+    /* Service Now "Global" globals (client) */
+    "snow-client": {
+      globals: {
         g_menu: false,
         g_item: false,
         g_list: false,
@@ -84,12 +88,22 @@ module.exports = {
         GlideDialogWindow: false,
         GlideList2: false,
         GlideMenu: false,
-        GlideUser: false,
-
-        /* Service Now Service Portal globals (server) */
+        GlideUser: false
+      }
+    },
+    /* Service Now Service Portal globals (server) */
+    "snow-sp": {
+      globals: {
         data: true,
         input: false,
-        angular: false
+        angular: false,
+        $sp: false,
+        spUtil: false,
+        g_service_catalog: false,
+        g_list: false,
+        g_form: false,
+        GlideAjax: false,
+        GlideRecord: false
       }
     }
   }

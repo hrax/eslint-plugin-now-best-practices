@@ -92,19 +92,19 @@ Add configuration to the extends section of your `.eslintrc` configuration file.
 | no-rowcount              | *error*
 | no-synchronous-glideajax | *error*
 
-## Environment
+## Environments
 
 Add environment to the env section of your `.eslintrc` configuration file.
 
 ```json
 {
   "env": {
-    "snow": true
+    "environment-name": true
   }
 }
 ```
 
-### *snow* Environment
+### *snow-server* Environment
 
 Service Now environment to register "common" globals available within Service Now platform.
 
@@ -131,6 +131,12 @@ Service Now environment to register "common" globals available within Service No
 | j2js                     | false     | [j2js](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_J2jsAPI?navFilter=j2js) (Quebec)
 | JSON                     | false     | [JSON](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_JSONAPI?navFilter=JSON) (Quebec)
 | JSONParser               | false     | [JSONParser](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server_legacy/c_JSONParserAPI?navFilter=JSON) (Quebec)
+| g_scratchpad             | false     | variable for [GlideFormScratchpad](https://developer.servicenow.com/dev.do#!/reference/api/quebec/server/no-namespace/c_GlideFormScratchpadScopedAPI?navFilter=GlideFormScratchpad) (Quebec)
+
+
+### *snow-client* Environment
+| Global                   | Writable  | References
+| ------------------------ | --------- | --------------
 | g_menu                   | false     | variable for GlideMenu
 | g_item                   | false     | variable for GlideMenu
 | g_list                   | false     | variable for GlideList2
@@ -142,6 +148,18 @@ Service Now environment to register "common" globals available within Service No
 | GlideList2               | false     | client [GlideList2](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideList2API?navFilter=GlideList2) (Quebec)
 | GlideMenu                | false     | client [GlideMenu](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideMenuAPI?navFilter=GlideMenu) (Quebec)
 | GlideUser                | false     | client [GlideUser](https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideUserAPI?navFilter=GlideUser) (Quebec)
+
+
+### *snow-sp* Environment
+| Global                   | Writable  | References
+| ------------------------ | --------- | --------------
 | data                     | true      | server variable in Service Portal
 | input                    | false     | server variable in Service Portal
 | angular                  | false     | server variable in Service Portal
+| $sp                      | false     | server variable in Service Portal
+| spUtil                   | false     | server variable in Service Portal
+| g_service_catalog        | false     | server variable in Service Portal
+| g_list                   | false     | server variable in Service Portal
+| g_form                   | false     | server variable in Service Portal
+| GlideAjax                | false     | server variable in Service Portal
+| GlideRecord              | false     | server variable in Service Portal
