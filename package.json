@@ -1,6 +1,6 @@
 {
   "name": "@hrax/eslint-plugin-now-best-practices",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint plugin to cover some of the Service Now Best Practices",
   "keywords": [
     "service now",

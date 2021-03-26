@@ -99,14 +99,14 @@ Add environment to the env section of your `.eslintrc` configuration file.
 ```json
 {
   "env": {
-    "environment-name": true
+    "@hrax/now-best-practices/environment-name": true
   }
 }
 ```
 
 ### *snow-server* Environment
 
-Service Now environment to register "common" globals available within Service Now platform.
+Service Now environment to register "common" server global variables available within Service Now platform.
 
 | Global                   | Writable  | References
 | ------------------------ | --------- | --------------
@@ -135,6 +135,9 @@ Service Now environment to register "common" globals available within Service No
 
 
 ### *snow-client* Environment
+
+Service Now environment to register "common" client global variables available within Service Now platform.
+
 | Global                   | Writable  | References
 | ------------------------ | --------- | --------------
 | g_menu                   | false     | variable for GlideMenu
@@ -151,6 +154,9 @@ Service Now environment to register "common" globals available within Service No
 
 
 ### *snow-sp* Environment
+
+Service Now environment to register "common" service portal global variables available within Service Now platform.
+
 | Global                   | Writable  | References
 | ------------------------ | --------- | --------------
 | data                     | true      | server variable in Service Portal
