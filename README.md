@@ -1,4 +1,9 @@
-# ServiceNow Best Practices ESLint Plugin [![Test](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml/badge.svg)](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml)
+# ServiceNow Best Practices ESLint Plugin
+
+[![build](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml/badge.svg)](https://github.com/hrax/eslint-plugin-now-best-practices/actions/workflows/test.yml)
+[![npm](https://img.shields.io/npm/v/@hrax/eslint-plugin-now-best-practices)](https://www.npmjs.com/package/@hrax/eslint-plugin-now-best-practices)
+![downloads](https://img.shields.io/npm/dt/@hrax/eslint-plugin-now-best-practices?color=%230374b4)
+
 
 Set of [Service Now technical best practice](https://developer.servicenow.com/dev.do#!/guides/orlando/now-platform/tpb-guide/scripting_technical_best_practices) rules to highlight common errors that occur during development of Service Now applications.
 
