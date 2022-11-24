@@ -104,6 +104,11 @@ Add environment to the env section of your `.eslintrc` configuration file.
 }
 ```
 
+You can also activate environment per file with inline comment
+```js
+/* eslint-env @hrax/now-best-practices/environment-name */
+```
+
 ### *snow-server* Environment
 
 Service Now environment to register "common" server global variables available within Service Now platform.

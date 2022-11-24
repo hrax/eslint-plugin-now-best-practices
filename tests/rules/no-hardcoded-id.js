@@ -3,6 +3,8 @@
 var rule = require("../../rules/no-hardcoded-id");
 var RuleTester = require("eslint").RuleTester;
 
+var foo = "9d385017c611228701d22104cc95c37";
+
 var ruleTester = new RuleTester();
 ruleTester.run("no-hardcoded-id", rule, {
 

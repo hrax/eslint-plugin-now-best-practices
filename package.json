@@ -1,6 +1,6 @@
 {
   "name": "@hrax/eslint-plugin-now-best-practices",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "ESLint plugin to cover some of the Service Now Best Practices",
   "keywords": [
     "service now",
@@ -18,10 +18,15 @@
     "url": "https://hrax.dev"
   },
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
   "files": [
     "rules",
     "index.js",
-    "README.md"
+    "README.md",
+    "LICENSE.txt"
   ],
   "repository": {
     "type": "git",
@@ -34,12 +39,11 @@
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.1.0",
+    "eslint": "^7.32.0",
     "mocha": "^7.2.0"
   },
   "engines": {
-    "node": ">=11.13.0",
-    "npm": "^6.7.0"
+    "node": "^12.22 || >14"
   },
-  "license": "ISC"
+  "license": "CC-BY-4.0"
 }
