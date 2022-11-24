@@ -45,5 +45,5 @@
   "engines": {
     "node": "^12.22 || >14"
   },
-  "license": "CC-BY-4.0"
+  "license": "MIT"
 }
